@@ -11,14 +11,14 @@ namespace WindowsForms
 {
     class StudentDB
     {
-        string SQLConnection;
+     
         private string getConnection()
         {
-            return ConfigurationManager.ConnectionStrings["student"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["dat"].ConnectionString;
         }
         public DataTable GetStudentList()
         {
-            string SQL = "select * from student";
+            string SQL = "select * from Student";
             SqlConnection cn = new SqlConnection(getConnection());
             SqlCommand cmd = new SqlCommand(SQL, cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
