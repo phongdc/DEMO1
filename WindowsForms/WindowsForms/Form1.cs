@@ -72,5 +72,49 @@ namespace WindowsForms
         {
             getAllStudents();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int ID = Int32.Parse(txtID.Text);
+            string Name = txtName.Text;
+            int Age = Int32.Parse(txtAge.Text);
+            string Class = txtClass.Text;
+
+            Students stu = new Students
+            {
+                ID = ID,
+                Name = Name,
+                Age = Age,
+                Class = Class
+            };
+            bool r = st.Update(stu);
+
+            if(r == true)
+            {
+                MessageBox.Show("Update sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("Fail!!");
+            }
+            getAllStudents();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int ID = Int32.Parse(txtID.Text);
+
+            bool r = st.Delete(ID);
+
+            if (r == true)
+            {
+                MessageBox.Show("Delete sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("fail!");
+            }
+            getAllStudents();
+        }
     }
 }

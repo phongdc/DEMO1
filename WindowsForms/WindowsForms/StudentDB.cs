@@ -75,7 +75,7 @@ namespace WindowsForms
         public bool Update(Students st)
         {
             bool r;
-            string SQL = "Update student set, Name = @Name, Age = @Age, Class= @Class WHERE ID = @ID";
+            string SQL = "Update student set Name = @Name, Age = @Age, Class= @Class WHERE ID = @ID";
             SqlConnection cn = new SqlConnection(getConnection());
             SqlCommand cmd = new SqlCommand(SQL, cn);
             cmd.Parameters.AddWithValue("@ID", st.ID);
@@ -102,13 +102,13 @@ namespace WindowsForms
             }
             return r;
         }
-        public bool Delete(Students st)
+        public bool Delete(int ID)
         {
             bool r;
             string SQL = "Delete Student Where ID= @ID";
             SqlConnection cn = new SqlConnection(getConnection());
             SqlCommand cmd = new SqlCommand(SQL, cn);
-            cmd.Parameters.AddWithValue("@ID", st.ID);           
+            cmd.Parameters.AddWithValue("@ID", ID);           
             try
             {
                 if (cn.State == ConnectionState.Closed)
